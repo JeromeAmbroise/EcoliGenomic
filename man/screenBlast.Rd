@@ -7,9 +7,9 @@
 screenBlast(reference, querry, min.pc.ident, dir.out)
 }
 \arguments{
-\item{reference}{the reference sequence that you want to screen. Fasta file in one or severa sequences}
+\item{reference}{the reference sequence that you want to screen. Fasta file of one or several sequences}
 
-\item{querry}{the querry sequence. Fasta file in one or severa sequences}
+\item{querry}{the querry sequence. Fasta file of one or several sequences}
 
 \item{dir.out}{the directory of the output}
 }
