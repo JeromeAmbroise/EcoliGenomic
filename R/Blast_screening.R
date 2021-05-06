@@ -1,17 +1,18 @@
-#' Screen a sequence using Blast
+#' Screen within a reference sequence the presence of a querry sequence
 #'
-#' You provide a reference and a querry and the function compute the percentage of the reference which is covered by the querry
+#' With this function, the user provides a reference sequence and a querry sequence and the function compute the percentage of the reference which is covered by the querry. This computation is computed using the GenomicRanges Bioconductor objects.
 #'
-#' @param reference the reference sequence that you want to screen. Fasta file of one or several sequences
-#' @param querry the querry sequence. Fasta file of one or several sequences
+#'
+#' @param reference The path of the reference sequence that you want to screen. The sequence should be a .fasta file including one or several sequences
+#' @param querry The path of the querry sequence. he sequence should be a .fasta file including one or several sequences
 #' @param dir.out the directory of the output
 #'
-#' @return numeric value of the percentage of the reference sequence which is covered by the querry
+#' @return numeric value of the percentage of the reference sequence which is covered by the querry sequence.
 #' @import GenomicRanges IRanges Biostrings
 #'
 #' @export
 
-screenBlast <- function (reference, querry,min.pc.ident,dir.out)
+screen_Blast <- function (reference, querry,min.pc.ident,dir.out)
 {
   library(Biostrings)
   try(unlink("temp", recursive = TRUE))

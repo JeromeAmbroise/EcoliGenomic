@@ -1,12 +1,11 @@
-#' type MLST of a draft genome
+#' MLST typing of a draft genome
 #'
-#' You provide the path of the draft genome and
+#' With this function, the user provides a genome (complete or WGS) as a fasta file and the function returns the MLST profile of the genome. Currently, severala MLST scheme are provided for MLST typing of E. coli (e.g Warwick scheme and plasmid incompatibility group (IncFRST,..)
 #'
-#' @param reference the reference sequence that you want to screen. Fasta file in one or severa sequences
-#' @param querry the querry sequence. Fasta file in one or severa sequences
-#' @param dir.out the directory of the output
+#' @genomePath The path of the genome (complete or WGS) of the reference sequence that you want to screen. The sequence should be a .fasta file including one or several sequences
+#' @type The name of the MLST scheme to be applied. List of possible values includes: ecoli-warwick plasmid-IncACcgPMLST plasmid-IncACPMLST plasmid-IncFRST plasmid-IncHI1MLST plasmid-IncHI2DLST plasmid-IncI1MLST plasmid-IncNMLST
 #'
-#' @return numeric value of the percentage of the reference sequence which is covered by the querry
+#' @return numeric vector including the Allele Type and Sequence Type of the genome
 #' @import GenomicRanges IRanges Biostrings
 #'
 #' @export
