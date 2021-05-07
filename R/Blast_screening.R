@@ -5,16 +5,17 @@
 #'
 #' @param reference The path of the reference sequence that you want to screen. The sequence should be a .fasta file including one or several sequences
 #' @param querry The path of the querry sequence. he sequence should be a .fasta file including one or several sequences
+#' @param min.pc.ident the minimum percentage of identity obtained with Blast that should be obtained in order to consider that the query match the reference sequence
 #' @param dir.out the directory of the output
 #'
 #' @return numeric value of the percentage of the reference sequence which is covered by the querry sequence.
-#' @import GenomicRanges IRanges Biostrings
-#'
+#' @import Biostrings
+#' @import GenomicRanges
+#' @import IRanges
 #' @export
 
 screen_Blast <- function (reference, querry,min.pc.ident,dir.out)
 {
-  library(Biostrings)
   try(unlink("temp", recursive = TRUE))
   dir.create("temp")
   dir.create("temp/dbblast")
@@ -37,8 +38,6 @@ screen_Blast <- function (reference, querry,min.pc.ident,dir.out)
     data.frame(start,end,new.start,new.end)
     GR <- GRanges(seqnames = blast$subject.access,ranges = IRanges(start =new.start ,end = new.end))
     GR.disjoin <- disjoin(GR)
-
-    #sequences.levels <- levels(factor(seqnames(GR.disjoin)))
     sequences <- readDNAStringSet(reference)
     sequences.levels <- names(sequences)
 
